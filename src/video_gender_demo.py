@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+# Dania Waqar
 # In[1]:
 
 
@@ -18,7 +18,7 @@ from utils.inference import apply_offsets
 from utils.inference import load_detection_model
 from utils.preprocessor import preprocess_input
 
-# parameters for loading data and images
+# These are the parameters for loading the data and images
 detection_model_path = '../trained_models/detection_models/haarcascade_frontalface_default.xml'
 #emotion_model_path = '../trained_models/emotion_models/fer2013_mini_XCEPTION.102-0.66.hdf5'
 gender_model_path = '../trained_models/gender_models/simple_CNN.81-0.96.hdf5'
@@ -26,14 +26,14 @@ gender_model_path = '../trained_models/gender_models/simple_CNN.81-0.96.hdf5'
 gender_labels = get_labels('imdb')
 font = cv2.FONT_HERSHEY_SIMPLEX
 
-# hyper-parameters for bounding boxes shape
+# These are the hyper-parameters for the bounding boxes shape
 frame_window = 10
 gender_offsets = (30, 60)
 #emotion_offsets = (20, 40)
 
-# loading models
+# Loading the models here
 face_detection = load_detection_model(detection_model_path)
-#emotion_classifier = load_model(emotion_model_path, compile=False)
+#emotion_classifier = load_model(emotion_model_path, compile=False) # don't need to load emotion classifier as we are only doing gender detection
 gender_classifier = load_model(gender_model_path, compile=False)
 
 # getting input model shapes for inference
@@ -66,12 +66,6 @@ while True:
             #gray_face = cv2.resize(gray_face, (emotion_target_size))
         except:
             continue
-        #gray_face = preprocess_input(gray_face, False)
-        #gray_face = np.expand_dims(gray_face, 0)
-        #gray_face = np.expand_dims(gray_face, -1)
-        #emotion_label_arg = np.argmax(emotion_classifier.predict(gray_face))
-        #emotion_text = emotion_labels[emotion_label_arg]
-        #emotion_window.append(emotion_text)
 
         rgb_face = np.expand_dims(rgb_face, 0)
         rgb_face = preprocess_input(rgb_face, False)
@@ -98,8 +92,6 @@ while True:
         draw_bounding_box(face_coordinates, rgb_image, color)
         draw_text(face_coordinates, rgb_image, gender_mode,
                   color, 0, -20, 1, 1)
-        #draw_text(face_coordinates, rgb_image, emotion_mode,
-        #          color, 0, -45, 1, 1)
 
     bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
     cv2.imshow('window_frame', bgr_image)
@@ -110,7 +102,3 @@ cv2.destroyAllWindows()
 
 
 # In[ ]:
-
-
-
-
