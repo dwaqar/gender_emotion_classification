@@ -50,5 +50,13 @@ b) The `train_emotion_classifier.py` file: This file has been modified in terms 
 
 c) The `train_gender_classifier.py` file: This file has been modified in terms of its batch size (it is now 64), type of optimizer (it is now Nadam), and learning rate (it remains as 0.001). These modifications led to a 1.7% improvement in accuracy from the original paper, and a 0.07% improvement from our replicated training iteration.
 
+# Links
+
+1. Link to dataset: https://drive.google.com/file/d/1Jy5wemcf71tG-Rf72fxaeIuvw331Bk-d/view?usp=sharing
+
+2. Link to Project Presentation: https://youtu.be/rARmLUJ-fHY
+
+3. Link to Project Demo: https://youtu.be/KldZt2SMbPc
+
 # Credit
 This work is based upon the work done by https://github.com/oarriaga/face_classification.
