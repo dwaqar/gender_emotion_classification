@@ -1,2 +1,50 @@
-# gender_emotion_classification
-This project is for class ECE 5831. The project title is "Gender and Emotion Recognition" and it is based upon the work done by https://github.com/oarriaga/face_classification.
+# Project Title: Gender and Emotion Recognition
+
+### Done by: Dania Maryam Waqar
+
+### Section: 2
+
+### Class: ECE 5831
+
+# This project consists of the following files:
+
+a) `datasets`: This folder holds the datasets that can be downloaded and unzipped from this link: https://drive.google.com/file/d/1Jy5wemcf71tG-Rf72fxaeIuvw331Bk-d/view?usp=sharing
+
+b) `trained_models`: This contains the models that have been trained. Both gender and emotion recognition models are stored here, and will be referenced when the main gender and emotion recognition file is run.
+
+c) `src`: This contains all the source code for training the gender and emotion recognizers, for running them separately, and to run them together. The main project file is called `video_emotion_gender_demo.py`.
+
+# To reproduce code:
+
+In order to reproduce the code, the following steps must be done:
+
+a) Download the dataset from the link above and save it as the ```datasets/``` folder.
+
+b) Ensure the following dependencies have been installed in your environment:
+  
+  - h5py==3.7.0
+
+  - keras==2.10.0
+
+  - numpy==1.23.1
+
+  - opencv-python==4.6.0
+
+  - pandas==1.4.2
+
+  - tensorflow==2.10.0
+
+c) _From the `src/` folder_ run ```video_emotion_gender.py```
+
+# Contributions to the original code:
+
+a) Addition of the `video_gender_demo.py` file: The code to run gender recognition independently did not exist in the original code files. In order to test gender recognition, we created this file successfully and tested it out, as seen in the Figure below.
+
+<img width="200" alt="Screen Shot 2022-12-12 at 11 29 50 AM" src="https://user-images.githubusercontent.com/120402562/207099888-46e3a71c-01d9-4d4f-af65-22a74e0a3a00.png"> <img width="200" alt="Screen Shot 2022-12-12 at 11 32 20 AM" src="https://user-images.githubusercontent.com/120402562/207100484-515389bc-06ff-42a9-b96b-dc42241a41f0.png">
+
+b) The `train_emotion_classifier.py` file: This file has been modified in terms of its batch size (it is now 64), type of optimizer (it is now Nadam), and learning rate (it remains as 0.001). These modifications led to a 6.04% improvement in accuracy from the original paper, and a 0.65% improvement from our replicated training iteration.
+
+c) The `train_gender_classifier.py` file: This file has been modified in terms of its batch size (it is now 64), type of optimizer (it is now Nadam), and learning rate (it remains as 0.001). These modifications led to a 1.7% improvement in accuracy from the original paper, and a 0.07% improvement from our replicated training iteration.
+
+# Credit
+This work is based upon the work done by https://github.com/oarriaga/face_classification.
