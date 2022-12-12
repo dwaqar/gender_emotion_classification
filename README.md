@@ -6,6 +6,10 @@
 
 ### Class: ECE 5831
 
+# Summary of Work
+
+In this project, we aimed to perform both gender and emotion recognition simultaneously. In order to do this, both networks were trained independently first to create gender and emotion recogntion models. These models have been saved. They are referenced by the main `video_emotion_gender_demo.py` file in order to perform both classification tasks in real time. Contributions have been made as detailed below, but mainly consist of efforts to improve the current performance of the algorithm through multiple iterations by changing the type of parameters used (batch size, type of optimizer, and learning rates). These efforts have proven successful as they have aided in a 6.04% and 1.7% improvement for emotion and gender recognition accuracies from the original benchmark paper.
+
 # This project consists of the following files:
 
 a) `datasets`: This folder holds the datasets that can be downloaded and unzipped from this link: https://drive.google.com/file/d/1Jy5wemcf71tG-Rf72fxaeIuvw331Bk-d/view?usp=sharing
