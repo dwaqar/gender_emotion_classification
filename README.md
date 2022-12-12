@@ -58,5 +58,7 @@ c) The `train_gender_classifier.py` file: This file has been modified in terms o
 
 3. Link to Project Demo: https://youtu.be/KldZt2SMbPc
 
+4. Link to Project GitHub Code: https://github.com/dwaqar/gender_emotion_classification
+
 # Credit
 This work is based upon the work done by https://github.com/oarriaga/face_classification.
