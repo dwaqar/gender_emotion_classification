@@ -1,9 +1,9 @@
 """
 File: train_emotion_classifier.py
-Author: Octavio Arriaga
-Email: arriaga.camargo@gmail.com
+Original Author: Octavio Arriaga
 Github: https://github.com/oarriaga
 Description: Train emotion classification model
+Modifications by: Dania Waqar
 """
 
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
@@ -17,7 +17,7 @@ from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.optimizers import Nadam
 
 # parameters
-batch_size = 64
+batch_size = 64 # This batch size has been changed
 num_epochs = 10000
 input_shape = (64, 64, 1)
 validation_split = .2
@@ -39,13 +39,15 @@ data_generator = ImageDataGenerator(
 # model parameters/compilation
 model = mini_XCEPTION(input_shape, num_classes)
 #sgd = SGD(learning_rate = 0.001)
-nadam = Nadam(learning_rate = 0.001)
+nadam = Nadam(learning_rate = 0.001) # This is the new optimizer to use
 model.compile(optimizer=nadam, loss='categorical_crossentropy',
               metrics=['accuracy', 'Precision', 'AUC', 'MeanAbsoluteError', 
                       'Recall', 'TrueNegatives', 'TruePositives'])
+# I have added extra metrics to view
+
 model.summary()
 
-
+# The dataset to import from the /datasets folder
 datasets = ['fer2013']
 for dataset_name in datasets:
     print('Training dataset:', dataset_name)
@@ -70,6 +72,8 @@ for dataset_name in datasets:
     num_samples, num_classes = emotions.shape
     train_data, val_data = split_data(faces, emotions, validation_split)
     train_faces, train_emotions = train_data
+    
+    # Training the model here
     model.fit_generator(data_generator.flow(train_faces, train_emotions,
                                             batch_size),
                         steps_per_epoch=len(train_faces) / batch_size,
