@@ -1,4 +1,4 @@
-# Project Title: Gender and Emotion Recognition
+# Project Title: Emotion and Gender Classification using Convolutional Neural Networks (CNNs)
 
 ### Done by: Dania Maryam Waqar
 
