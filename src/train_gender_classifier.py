@@ -1,9 +1,9 @@
 """
 File: train_gender_classifier.py
 Author: Octavio Arriaga
-Email: arriaga.camargo@gmail.com
 Github: https://github.com/oarriaga
 Description: Train gender classification model
+Modifications by: Dania Waqar
 """
 
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
@@ -16,7 +16,7 @@ from utils.datasets import split_imdb_data
 from tensorflow.keras.optimizers import Nadam
 
 # parameters
-batch_size = 64 #32
+batch_size = 64 #This is the batch size we have changed
 num_epochs = 1000
 validation_split = .2
 do_random_crop = False
@@ -26,7 +26,7 @@ dataset_name = 'imdb'
 input_shape = (64, 64, 1)
 if input_shape[2] == 1:
     grayscale = True
-images_path = '../datasets/imdb_crop/'
+images_path = '../datasets/imdb_crop/' # The path to the imdb folder
 #images_path = '../datasets/gender/'
 log_file_path = '../trained_models/gender_models/gender_training.log'
 trained_models_path = '../trained_models/gender_models/gender_mini_XCEPTION'
@@ -48,11 +48,12 @@ image_generator = ImageGenerator(ground_truth_data, batch_size,
 # model parameters/compilation
 model = mini_XCEPTION(input_shape, num_classes)
 #sgd = SGD(learning_rate = 0.001)
-nadam = Nadam(learning_rate = 0.001)
+nadam = Nadam(learning_rate = 0.001) # This is our new optimizer to use
 model.compile(optimizer=nadam,
               loss='categorical_crossentropy',
               metrics=['accuracy', 'Precision', 'AUC', 'MeanAbsoluteError', 
                       'Recall', 'TrueNegatives', 'TruePositives'])
+# Extra metrics have been added
 model.summary()
 
 # model callbacks
@@ -68,7 +69,7 @@ model_checkpoint = ModelCheckpoint(model_names,
                                    save_weights_only=False)
 callbacks = [model_checkpoint, csv_logger, early_stop, reduce_lr]
 
-# training model
+# To train the model:
 model.fit_generator(image_generator.flow(mode='train'),
                     steps_per_epoch=int(len(train_keys) / batch_size),
                     epochs=num_epochs, verbose=1,
