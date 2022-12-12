@@ -42,7 +42,7 @@ c) _From the `src/` folder_ run ```video_emotion_gender.py```
 
 # Contributions to the original code:
 
-a) Addition of the `video_gender_demo.py` file: The code to run gender recognition independently did not exist in the original code files. In order to test gender recognition, we created this file successfully and tested it out, as seen in the Figure below.
+a) Addition of the `video_gender_demo.py` file: The code to run gender recognition independently did not exist in the original code files. In order to test gender recognition, we created this file successfully and tested it out, as seen in the Figure below (Figures only visible on main Github page).
 
 <img width="200" alt="Screen Shot 2022-12-12 at 11 29 50 AM" src="https://user-images.githubusercontent.com/120402562/207099888-46e3a71c-01d9-4d4f-af65-22a74e0a3a00.png"> <img width="200" alt="Screen Shot 2022-12-12 at 11 32 20 AM" src="https://user-images.githubusercontent.com/120402562/207100484-515389bc-06ff-42a9-b96b-dc42241a41f0.png">
 
